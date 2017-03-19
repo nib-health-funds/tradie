@@ -1,3 +1,8 @@
+<a href="https://github.com/jameslnewell/tradie">
+  <img alt="tradie" src="./doc/tradie-logo.png" height="100px" />
+</a>
+<br />
+
 # tradie
 
 [![Build Status](https://travis-ci.org/jameslnewell/tradie.svg?branch=master)](https://travis-ci.org/jameslnewell/tradie)
@@ -17,10 +22,10 @@ A semi-opinionated build tool for frontend projects. Use it to lint, bundle and 
 
 ##### Why not `create-react-app`?
 
-[Create React App](https://github.com/facebookincubator/create-react-app) is a great tool and we'd highly recommend 
-giving it a go! 
+[Create React App](https://github.com/facebookincubator/create-react-app) is a great tool and we'd highly recommend
+giving it a go!
 However
-`create-react-app` is tailored to a specific use-case and doesn't support `CSS` pre-processing (e.g. `SASS`), multiple 
+`create-react-app` is tailored to a specific use-case and doesn't support `CSS` pre-processing (e.g. `SASS`), multiple
 targets or UniversalJS applications. Tradie supports `SASS` and a number of common application types.
 
 ## Installation
@@ -51,25 +56,25 @@ targets or UniversalJS applications. Tradie supports `SASS` and a number of comm
 ## Project Structure
 
 ```
-    
+
 src/
     index.js
     index.test.js
-    
+
 dest/
     rev-manifest.json
     index.abcdefg.js
     vendor.abcdefg.js
-    
+
 tmp/
     abcdefg.json.gzip
     vendor-manifest.json
-    
+
 ```
 
 ### src/
 
-The directory where your application source code lives. 
+The directory where your application source code lives.
 
 > Place all your script, style, asset and test files here.
 
@@ -87,9 +92,9 @@ The directory where temporary files are generated.
 
 ## Configuration
 
-Tradie works out-of-the-box with no configuration. However, Tradie can be configured to support additional 
-functionality by placing a `tradie.config.js` file in the project root. The file must export an `object`, 
-or a `function` that returns an `object`. 
+Tradie works out-of-the-box with no configuration. However, Tradie can be configured to support additional
+functionality by placing a `tradie.config.js` file in the project root. The file must export an `object`,
+or a `function` that returns an `object`.
 
 The default configuration for Tradie looks like this:
 
@@ -118,7 +123,7 @@ module.exports = {
   webpack: {},
 
   plugins: []
-  
+
 };
 ```
 
@@ -130,12 +135,12 @@ A list of module paths that will be bundled into script files.
 
 Module paths are relative to your project's `src` directory.
 
-> Optional. An `array` of `string`s. Defaults to `['index.js']`. 
+> Optional. An `array` of `string`s. Defaults to `['index.js']`.
 
 > Example: Multiple bundles
 
-You can create multiple bundles. Dependencies shared between all of the bundles will be bundled into a script file 
-named 
+You can create multiple bundles. Dependencies shared between all of the bundles will be bundled into a script file
+named
 `common.js`.
 
 ```js
@@ -148,7 +153,7 @@ module.exports = {
 
 > Example: UniversalJS bundles
 
-You can create a bundle to run on NodeJS by naming your bundle `server`. Use this when you're sharing the bulk of 
+You can create a bundle to run on NodeJS by naming your bundle `server`. Use this when you're sharing the bulk of
 your app code across both your server and client.
 
 ```js
@@ -167,7 +172,7 @@ A list of modules that will be bundled into a script file named `vendor.js`.
 
 > Example: Long-term-caching
 
-Bundle infrequently changing modules. These bundles usually make up a significant portion of your app and with 
+Bundle infrequently changing modules. These bundles usually make up a significant portion of your app and with
 long-term-caching they won't need to be (re)downloaded by the browser each time your app is deployed.
 
 ```js
@@ -228,7 +233,7 @@ Additional configuration passed to `webpack`. See [Configuration](https://webpac
 
 > Optional. An `object`. Defaults to `{}`.
 
-> Warning: Avoid using this escape hatch where possible, you'll be more susceptible to breaking changes when 
+> Warning: Avoid using this escape hatch where possible, you'll be more susceptible to breaking changes when
 `webpack` is updated.
 
 ### plugins
@@ -268,7 +273,7 @@ Uses `eslint` to lint script files in the `src` directory.
 `glob`s are relative to the `src` directory.
 
 > Example: Run linting rules on a subset of script files
- 
+
 ```bash
 tradie lint "components/**" "containers/**"
 ```
@@ -283,7 +288,7 @@ Uses `webpack` to bundle script, style and asset files.
 
 Use the `--watch` flag to re-bundle script and style files whenever they change.
 
-Use the `--optimize` flag to optimize script, style and asset files, including minification, dead-code removal, file 
+Use the `--optimize` flag to optimize script, style and asset files, including minification, dead-code removal, file
 hashing etc.
 
 ### Testing
@@ -299,7 +304,7 @@ Use the `--watch` flag to re-test script files whenever they change.
 `glob`s are relative to the `src` directory.
 
 > Example: Run tests on a subset of script files
- 
+
 ```bash
 tradie test "components/**" "containers/**"
 ```
